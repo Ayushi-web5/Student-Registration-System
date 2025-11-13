@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Registration System</title>
+  <meta name="description" content="A Student Registration System with add/edit/delete and localStorage persistence." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Student Registration System</h1>
+      <p class="lead">Register students, edit or remove records. Data persists using Local Storage.</p>
+      <nav class="nav">
+        <a href="#form">Register</a>
+        <a href="#display">Display Records</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-grid">
+    <!-- Form Section -->
+    <section id="form" class="card form-card">
+      <h2>Register Student</h2>
+      <form id="studentForm" novalidate>
+        <div class="row">
+          <label for="name">Student Name</label>
+          <input id="name" name="name" type="text" placeholder="Full name" required />
+          <small class="error" id="nameError"></small>
+        </div>
+
+        <div class="row">
+          <label for="studentId">Student ID</label>
+          <input id="studentId" name="studentId" type="text" placeholder="Numeric ID" required inputmode="numeric" />
+          <small class="error" id="idError"></small>
+        </div>
+
+        <div class="row">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="name@example.com" required />
+          <small class="error" id="emailError"></small>
+        </div>
+
+        <div class="row">
+          <label for="contact">Contact Number</label>
+          <input id="contact" name="contact" type="tel" placeholder="10+ digits" required inputmode="numeric" />
+          <small class="error" id="contactError"></small>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="submitBtn">Add Student</button>
+          <button type="button" id="resetBtn" class="secondary">Reset</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Display Section -->
+    <section id="display" class="card display-card">
+      <h2>Registered Students</h2>
+      <div id="tableWrapper" class="table-wrapper">
+        <!-- Table inserted by JS -->
+        <table id="studentsTable" class="students-table" aria-live="polite">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Student ID</th>
+              <th>Email</th>
+              <th>Contact</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="studentsTbody">
+            <!-- rows -->
+          </tbody>
+        </table>
+      </div>
+      <p id="emptyText" class="muted">No records yet. Add students using the form.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>Assignment 1 • Student Registration System • Local Storage demo</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
